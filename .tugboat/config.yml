@@ -1,6 +1,6 @@
 services:
   terraform:
-    image: tugboatqa/ubuntu:xenial
+    image: tugboatqa/alpine:latest
   
     commands:
       init:
