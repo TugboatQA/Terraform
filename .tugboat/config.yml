@@ -12,8 +12,8 @@ services:
         
       build:
         # Define variables for Terraform to use. 
-        - touch "variables.tf"
-        # - echo -e "variable \"access_key\" {\"${aws_access_key\"}}\nvariable \"secret_key\" {\"${aws_secret_key\"}}" >> "variables.tf"
+        - sed -in "s/aws_access_key/${aws_access_key}/" "examples.tf"
+        - sed -in "s/aws_secret_key/${aws_secret_key}/" "examples.tf"
         
         # Initialize the backend and provider plugins.
         - ./terraform init
