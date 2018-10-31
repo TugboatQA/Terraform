@@ -10,4 +10,5 @@ services:
         - ln -sf ./terraform /usr/local/bin/terraform
         
       build:
+        - touch "variables.tf"
         - ./terraform init
