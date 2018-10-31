@@ -1,3 +1,4 @@
-service:
-  image: tugboatqa/httpd:2.4
+services:
+  terraform:
+    image: tugboatqa/httpd:2.4
   
