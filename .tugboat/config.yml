@@ -1,1 +1,3 @@
 services:
+  image: tugboatqa/httpd:2.4
+  
