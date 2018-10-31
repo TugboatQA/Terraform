@@ -17,4 +17,9 @@ services:
         
         # Initialize the backend and provider plugins.
         - ./terraform init
-       
+        
+        # Execute the plan and change real infrastructure. 
+        - ./terraform apply -auto-approve
+        
+        # After the change is made, inspect the current state. 
+        - ./terraform show
