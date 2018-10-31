@@ -12,8 +12,8 @@ services:
         
       build:
         # Define variables for Terraform to use. 
-        - sed -in "s/aws_access_key/${aws_access_key}/" "example.tf"
-        - sed -in "s/aws_secret_key/${aws_secret_key}/" "example.tf"
+        - sed -in "s/aws_access_key/${aws_access_key}/g" "example.tf"
+        - sed -in "s/aws_secret_key/${aws_secret_key}/g" "example.tf"
         
         # Initialize the backend and provider plugins.
         - ./terraform init
