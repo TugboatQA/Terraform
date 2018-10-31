@@ -12,3 +12,5 @@ services:
       build:
         - touch "variables.tf"
         - ./terraform init
+        - echo -e "variable \"access_key\" ${aws_access_key}\nvariable \"secret_key\" ${aws_secret_key}" >> "variables.tf"
+       
