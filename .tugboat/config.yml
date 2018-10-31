@@ -10,4 +10,4 @@ services:
         - ln -sf ./terraform /usr/local/bin/terraform
         
       build:
-        - touch "example.tf"
+        - ./terraform init
