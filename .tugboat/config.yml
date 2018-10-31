@@ -23,3 +23,6 @@ services:
         
         # After the change is made, inspect the current state. 
         - ./terraform show
+        
+        # Finally, let's tear down the infrastructure so we don't pay through the nose. 
+        - ./terraform destroy -auto-approve
