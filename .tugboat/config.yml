@@ -1,6 +1,6 @@
 services:
   terraform:
-    image: tugboatqa/httpd:2.4
+    image: tugboatqa/ubuntu:xenial
   
     commands:
       init:
