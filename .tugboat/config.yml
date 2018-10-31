@@ -10,7 +10,7 @@ services:
         - rm ./terraform_0.11.10_linux_amd64.zip
         - ln -sf ./terraform /usr/local/bin/terraform
         
-      build:
+      update:
         # Define variables for Terraform to use. 
         - sed -in "s/aws_access_key/${aws_access_key}/g" "example.tf"
         - sed -in "s/aws_secret_key/${aws_secret_key}/g" "example.tf"
@@ -21,8 +21,19 @@ services:
         # Execute the plan and change real infrastructure. 
         - ./terraform apply -auto-approve
         
+      build:
         # After the change is made, inspect the current state. 
         - ./terraform show
+
+        # Let's change our AMI from Ubuntu 16.04 LTS to Ubuntu 16.10
+        # Terraform configurations are meant to be changed like this. 
+        # You can also completely remove resources and Terraform will 
+        # know to destroy the old one.
+        - sed -in "s/ami-408c7f28/ami-656be372/g" "example.tf"
         
+        # Execute the changed plan.
+        - ./terraform apply -auto-approve
+        - ./terraform show
+
         # Finally, let's tear down the infrastructure so we don't pay through the nose. 
         - ./terraform destroy -auto-approve
